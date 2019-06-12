@@ -1,0 +1,12 @@
+git clone https://github.com/Laradock/laradock.git
+cd laradock
+cp .env-example .env
+Buscar DOCKER_HOST_IP y colocar dirección local 127.0.0.1
+docker-compose up -d nginx mysql phpmyadmin
+docker-compose exec workspace bash
+composer create-project --prefer-dist laravel/laravel project
+cp .env.example .env
+artisan key:generate
+cd project
+chmod -R 777 storage bootstrap/cache
+https://www.laraveltip.com/como-utilizar-laravel-con-docker-la-guia-definitiva/
